@@ -43,5 +43,27 @@ namespace WebAPI.Controllers
 
 
         }
+        [HttpPost("delete")]
+        public IActionResult Delete(Department department)
+        {
+            var result = _departmentService.Delete(department);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPost("update")]
+        public IActionResult Update(Department department)
+        {
+            var result = _departmentService.Update(department);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

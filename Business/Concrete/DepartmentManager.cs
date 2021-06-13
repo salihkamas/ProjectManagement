@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -18,27 +19,28 @@ namespace Business.Concrete
             _departmentDal = departmentDal;
         }
 
+        //[ValidationAspect(typeof(DepartmentValidator))]
         public IResult Add(Department department)
         {
             _departmentDal.Add(department);
-            return new SuccessResult("Successfuly Added");
+            return new SuccessResult(Messages.SuccessAdd);
         }
 
         public IResult Delete(Department department)
         {
             _departmentDal.Delete(department);
-            return new SuccessResult("Successfuly Deleted");
+            return new SuccessResult(Messages.SuccessDelete);
         }
 
         public IDataResult<List<Department>> GetAll()
         {
-            return new SuccessDataResult<List<Department>>(_departmentDal.GetAll(), "Successfuly Listed");
+            return new SuccessDataResult<List<Department>>(_departmentDal.GetAll(), Messages.SuccessList);
         }
 
         public IResult Update(Department department)
         {
             _departmentDal.Update(department);
-            return new SuccessResult("Successfuly Updated");
+            return new SuccessResult(Messages.SuccessUpdated);
 
         }
     }
