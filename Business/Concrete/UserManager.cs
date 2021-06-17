@@ -46,6 +46,11 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(x => x.Id == userId), Messages.SuccesFind);
         }
 
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
         public IResult Update(User user)
         {
             _userDal.Update(user);

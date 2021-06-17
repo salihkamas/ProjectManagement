@@ -12,6 +12,7 @@ using System.Text;
 
 namespace Core.Utilities.Security.JWT
 {
+
     public class JwtHelper : ITokenHelper
     {
         public IConfiguration Configuration { get; }

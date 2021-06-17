@@ -16,8 +16,10 @@ namespace DataAccess.Concrete.EntityFramework
 
         public DbSet<Department> Departments { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
     }
 }
