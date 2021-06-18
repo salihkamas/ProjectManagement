@@ -13,7 +13,8 @@ namespace WebAPI.Controllers
     [ApiController]
     public class AnnouncementsController : ControllerBase
     {
-        IAnnouncementService _announcementService;
+        
+       private IAnnouncementService _announcementService;
 
         public AnnouncementsController(IAnnouncementService announcementService)
         {

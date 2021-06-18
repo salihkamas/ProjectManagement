@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        ITaskService _taskService;
+       private ITaskService _taskService;
 
         public TasksController(ITaskService taskService)
         {

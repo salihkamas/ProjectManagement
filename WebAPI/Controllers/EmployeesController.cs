@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,19 +12,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepartmentsController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
-       private IDepartmentService _departmentService;
+       private IEmployeeService _employeeService;
 
-        public DepartmentsController(IDepartmentService departmentService)
+        public EmployeesController(IEmployeeService employeeService)
         {
-            _departmentService = departmentService;
-        }
+            _employeeService = employeeService;
 
+        }
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _departmentService.GetAll();
+            var result = _employeeService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -32,9 +33,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Department department)
+        public IActionResult Add(Employee employee)
         {
-            var result = _departmentService.Add(department);
+            var result = _employeeService.Add(employee);
             if (result.Success)
             {
                 return Ok(result);
@@ -44,9 +45,9 @@ namespace WebAPI.Controllers
 
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Department department)
+        public IActionResult Delete(Employee employee)
         {
-            var result = _departmentService.Delete(department);
+            var result = _employeeService.Delete(employee);
             if (result.Success)
             {
                 return Ok(result);
@@ -55,9 +56,9 @@ namespace WebAPI.Controllers
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Department department)
+        public IActionResult Update(Employee employee)
         {
-            var result = _departmentService.Update(department);
+            var result = _employeeService.Update(employee);
             if (result.Success)
             {
                 return Ok(result);
